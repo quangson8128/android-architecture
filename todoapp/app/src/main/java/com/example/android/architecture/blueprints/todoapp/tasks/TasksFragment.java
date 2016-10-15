@@ -24,6 +24,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
@@ -289,7 +290,7 @@ public class TasksFragment extends Fragment implements TasksContract.View {
         mNoTasksView.setVisibility(View.VISIBLE);
 
         mNoTaskMainView.setText(mainText);
-        mNoTaskIcon.setImageDrawable(getResources().getDrawable(iconRes));
+        mNoTaskIcon.setImageDrawable(ResourcesCompat.getDrawable(getResources(), iconRes, null););
         mNoTaskAddView.setVisibility(showAddView ? View.VISIBLE : View.GONE);
     }
 
@@ -404,11 +405,11 @@ public class TasksFragment extends Fragment implements TasksContract.View {
             // Active/completed task UI
             completeCB.setChecked(task.isCompleted());
             if (task.isCompleted()) {
-                rowView.setBackgroundDrawable(viewGroup.getContext()
-                        .getResources().getDrawable(R.drawable.list_completed_touch_feedback));
+                rowView.setBackgroundDrawable(ResourcesCompat.getDrawable(viewGroup.getContext().getResources(),
+                                            R.drawable.list_completed_touch_feedback));
             } else {
-                rowView.setBackgroundDrawable(viewGroup.getContext()
-                        .getResources().getDrawable(R.drawable.touch_feedback));
+                rowView.setBackgroundDrawable(ResourcesCompat.getDrawable(viewGroup.getContext().getResources(),
+                                            R.drawable.touch_feedback));
             }
 
             completeCB.setOnClickListener(new View.OnClickListener() {
